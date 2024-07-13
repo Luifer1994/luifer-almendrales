@@ -1,0 +1,10 @@
+---
+import { getIcon } from "../../utils/getIcon";
+const { title } = Astro.props;
+const iconHTML = getIcon(title);
+---
+
+<div
+  class="text-white rounded w-12 h-12 flex items-center justify-center"
+  set:html={iconHTML}
+/>

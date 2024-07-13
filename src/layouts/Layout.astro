@@ -1,0 +1,415 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+import HomeIcon from "../components/icons/HomeIcon.astro";
+import UserIcon from "../components/icons/UserIcon.astro";
+import PortfolioIcon from "../components/icons/PortfolioIcon.astro";
+import MoonIcon from "../components/icons/MoonIcon.astro";
+import SoonIcon from "../components/icons/SoonIcon.astro";
+import MenuIcon from "../components/icons/MenuIcon.astro";
+import ArrowRigthIcon from "../components/icons/ArrowRigthIcon.astro";
+import ClosedIcon from "../components/icons/ClosedIcon.astro";
+import Intro from "../components/Intro.astro";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script>
+      // En un archivo de declaración global, por ejemplo, global.d.ts
+      declare global {
+        interface Window {
+          toggleTheme: () => void;
+        }
+      }
+
+      // Inline script to avoid FOUC
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      // Definir la función toggleTheme en el ámbito global
+      window.toggleTheme = function () {
+        const htmlElement = document.documentElement;
+        const currentTheme = localStorage.getItem("theme");
+        const moonButton = document.querySelector(
+          '[data-hs-theme-click-value="dark"]'
+        );
+        const sunButton = document.querySelector(
+          '[data-hs-theme-click-value="light"]'
+        );
+
+        if (moonButton && sunButton) {
+          if (currentTheme === "dark") {
+            htmlElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            moonButton.classList.remove("hidden");
+            moonButton.classList.add("flex");
+            sunButton.classList.remove("flex");
+            sunButton.classList.add("hidden");
+          } else {
+            htmlElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            moonButton.classList.remove("flex");
+            moonButton.classList.add("hidden");
+            sunButton.classList.remove("hidden");
+            sunButton.classList.add("flex");
+          }
+        }
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentTheme = localStorage.getItem("theme");
+        const moonButton = document.querySelector(
+          '[data-hs-theme-click-value="dark"]'
+        );
+        const sunButton = document.querySelector(
+          '[data-hs-theme-click-value="light"]'
+        );
+
+        if (moonButton && sunButton) {
+          if (currentTheme === "dark") {
+            moonButton.classList.add("hidden");
+            moonButton.classList.remove("flex");
+            sunButton.classList.add("flex");
+            sunButton.classList.remove("hidden");
+          } else {
+            moonButton.classList.add("flex");
+            moonButton.classList.remove("hidden");
+            sunButton.classList.add("hidden");
+            sunButton.classList.remove("flex");
+          }
+        }
+      });
+    </script>
+  </head>
+  <body
+    class="relative h-screen overflow-y-auto overflow-x-hidden bg-light text-dark dark:bg-dark dark:text-text-light"
+  >
+    <div
+      class="mx-auto flex max-w-screen-2xl flex-col justify-between gap-4 p-4 lg:gap-6 lg:p-6"
+    >
+      <header class="sticky top-0 z-50">
+        <div>
+          <div
+            class="flex items-center justify-between rounded-2xl bg-white p-3 dark:bg-black shadow dark:shadow-cyan-200/5"
+          >
+            <!-- Logo -->
+            <a
+              href="index.html"
+              class="inline-flex items-center gap-3 px-3 text-2xl font-semibold text-dark dark:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="h-6 w-6"
+              >
+                <path
+                  fill="currentColor"
+                  d="M0 1.5A1.5 1.5 0 0 1 1.5 0H9a1.5 1.5 0 0 1 1.5 1.5v21A1.5 1.5 0 0 1 9 24H1.5A1.5 1.5 0 0 1 0 22.5v-21Zm13.5 0A1.5 1.5 0 0 1 15 0h7.5A1.5 1.5 0 0 1 24 1.5V9a1.5 1.5 0 0 1-1.5 1.5H15A1.5 1.5 0 0 1 13.5 9V1.5Zm0 13.5a1.5 1.5 0 0 1 1.5-1.5h7.5A1.5 1.5 0 0 1 24 15v7.5a1.5 1.5 0 0 1-1.5 1.5H15a1.5 1.5 0 0 1-1.5-1.5V15Z"
+                ></path>
+              </svg>
+              <span>Luifer<span class="text-primary"> - Almendrales</span></span
+              >
+            </a>
+            <!-- Navigation menu -->
+            <ul
+              class="hidden flex-1 flex-wrap items-center justify-center lg:flex navbar"
+            >
+              <li class="group/menu-item">
+                <a
+                  href="/"
+                  class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 text-center text-base font-medium text-muted transition hover:bg-gray-100 [.active]:bg-gray-100 hover:text-dark group-[.active]/menu-item:bg-gray-100 group-[.active]/menu-item:text-dark dark:hover:bg-dark-2 dark:hover:text-text-light dark:group-[.active]/menu-item:bg-dark-2 dark:group-[.active]/menu-item:text-text-light"
+                >
+                  <HomeIcon />
+                  <span>Inicio</span>
+                </a>
+              </li>
+              <li class="group/menu-item">
+                <a
+                  href="/about"
+                  class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 text-center text-base font-medium text-muted transition hover:bg-gray-100 hover:text-dark group-[.active]/menu-item:bg-gray-100 group-[.active]/menu-item:text-dark dark:hover:bg-dark-2 dark:hover:text-text-light dark:group-[.active]/menu-item:bg-dark-2 dark:group-[.active]/menu-item:text-text-light"
+                >
+                  <UserIcon />
+                  <span>Sobre mí</span>
+                </a>
+              </li>
+              <li class="group/menu-item">
+                <a
+                  href="/portfolio"
+                  class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 text-center text-base font-medium text-muted transition hover:bg-gray-100 hover:text-dark group-[.active]/menu-item:bg-gray-100 group-[.active]/menu-item:text-dark dark:hover:bg-dark-2 dark:hover:text-text-light dark:group-[.active]/menu-item:bg-dark-2 dark:group-[.active]/menu-item:text-text-light"
+                >
+                  <PortfolioIcon />
+                  <span>Portafolio</span>
+                </a>
+              </li>
+            </ul>
+            <!-- Header buttons -->
+            <div class="hidden items-center gap-4 lg:flex">
+              <!-- Theme appearance toggler -->
+              <div>
+                <button
+                  type="button"
+                  class="hs-dark-mode group flex h-10 w-10 items-center justify-center rounded-lg text-center font-medium text-dark transition hover:bg-gray-100 dark:hidden dark:text-gray-400 dark:hover:text-gray-500"
+                  data-hs-theme-click-value="dark"
+                  onclick="toggleTheme()"
+                >
+                  <MoonIcon />
+                </button>
+                <button
+                  type="button"
+                  class="hs-dark-mode group hidden h-10 w-10 items-center justify-center rounded-lg text-center font-medium text-dark transition hover:bg-gray-100 dark:show hs-dark-mode-active:flex dark:text-primary dark:hover:bg-dark dark:hover:text-primary-hover"
+                  data-hs-theme-click-value="light"
+                  onclick="toggleTheme()"
+                >
+                  <SoonIcon />
+                </button>
+              </div>
+              <a
+                href="https://wa.me/573117952897"
+                target="_blank"
+                class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-4 text-center text-base font-semibold leading-tight text-white transition hover:bg-primary-hover dark:bg-dark-2 dark:text-white dark:hover:bg-primary dark:hover:text-white"
+              >
+                <span> Hablemos </span>
+                <ArrowRigthIcon />
+              </a>
+            </div>
+            <!-- Navigation toggler -->
+            <button
+              type="button"
+              class="text-dark transition dark:text-text-light lg:hidden"
+              id="menu-toggle"
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation"
+            >
+              <span class="sr-only">Toggle Navigation</span>
+              <MenuIcon />
+            </button>
+          </div>
+        </div>
+      </header>
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 z-[60] hidden h-full w-full bg-white dark:bg-dark-2"
+      >
+        <div class="flex h-full flex-col justify-between p-5">
+          <div
+            class="flex items-center justify-between rounded-2xl bg-white p-3 shadow dark:bg-dark-2 dark:shadow-cyan-200/5"
+          >
+            <!-- Logo -->
+            <a
+              href="index.html"
+              class="inline-flex items-center gap-3 px-3 text-2xl font-semibold text-dark dark:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="h-6 w-6"
+              >
+                <path
+                  fill="currentColor"
+                  d="M0 1.5A1.5 1.5 0 0 1 1.5 0H9a1.5 1.5 0 0 1 1.5 1.5v21A1.5 1.5 0 0 1 9 24H1.5A1.5 1.5 0 0 1 0 22.5v-21Zm13.5 0A1.5 1.5 0 0 1 15 0h7.5A1.5 1.5 0 0 1 24 1.5V9a1.5 1.5 0 0 1-1.5 1.5H15A1.5 1.5 0 0 1 13.5 9V1.5Zm0 13.5a1.5 1.5 0 0 1 1.5-1.5h7.5A1.5 1.5 0 0 1 24 15v7.5a1.5 1.5 0 0 1-1.5 1.5H15a1.5 1.5 0 0 1-1.5-1.5V15Z"
+                ></path>
+              </svg>
+              <span>Luifer<span class="text-primary"> - Almendrales</span></span
+              >
+            </a>
+            <i
+              class="text-dark dark:text-white cursor-pointer"
+              id="menu-toggle-close"
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation"
+            >
+              <ClosedIcon />
+            </i>
+          </div>
+          <ul class="mt-4 flex flex-1 flex-col gap-2 navbar-mobile">
+            <li class="group/menu-item">
+              <a
+                href="/"
+                class="group inline-flex w-full items-center gap-2 rounded-lg px-3 py-2 text-center text-base font-medium text-muted transition hover:bg-gray-100 hover:text-dark group-[.active]/menu-item:bg-gray-100 group-[.active]/menu-item:text-dark dark:hover:bg-dark-2 dark:hover:text-text-light dark:group-[.active]/menu-item:bg-dark-2 dark:group-[.active]/menu-item:text-text-light"
+              >
+                <HomeIcon />
+                <span>Inicio</span>
+              </a>
+            </li>
+            <li class="group/menu-item">
+              <a
+                href="/about"
+                class="group inline-flex w-full items-center gap-2 rounded-lg px-3 py-2 text-center text-base font-medium text-muted transition hover:bg-gray-100 hover:text-dark group-[.active]/menu-item:bg-gray-100 group-[.active]/menu-item:text-dark dark:hover:bg-dark-2 dark:hover:text-text-light dark:group-[.active]/menu-item:bg-dark-2 dark:group-[.active]/menu-item:text-text-light"
+              >
+                <UserIcon />
+                <span>Sobre mí</span>
+              </a>
+            </li>
+            <li class="group/menu-item">
+              <a
+                href="/portfolio"
+                class="group inline-flex w-full items-center gap-2 rounded-lg px-3 py-2 text-center text-base font-medium text-muted transition hover:bg-gray-100 hover:text-dark group-[.active]/menu-item:bg-gray-100 group-[.active]/menu-item:text-dark dark:hover:bg-dark-2 dark:hover:text-text-light dark:group-[.active]/menu-item:bg-dark-2 dark:group-[.active]/menu-item:text-text-light"
+              >
+                <PortfolioIcon />
+                <span>Portafolio</span>
+              </a>
+            </li>
+          </ul>
+          <div class="flex flex-col gap-3">
+            <button
+              data-hs-theme-click-value="dark"
+              class="hs-dark-mode flex w-full items-center justify-start gap-2 rounded-lg px-4 py-2 text-center text-sm text-muted transition hover:bg-gray-100 hs-dark-mode-active:hidden dark:hover:bg-dark dark:hover:text-text-light"
+              onclick="toggleTheme()"
+            >
+              <MoonIcon />
+            </button>
+            <button
+              data-hs-theme-click-value="light"
+              class="hs-dark-mode hidden w-full items-center justify-start gap-2 rounded-lg px-4 py-2 text-center text-sm text-muted transition hover:bg-gray-100 hs-dark-mode-active:flex dark:hover:bg-dark dark:hover:text-text-light"
+              onclick="toggleTheme()"
+            >
+              <SoonIcon />
+            </button>
+            <a
+              href="contact.html"
+              class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-4 text-center text-base font-semibold leading-tight text-white transition hover:bg-primary-hover dark:bg-dark-2 dark:text-white dark:hover:bg-primary dark:hover:text-white"
+            >
+              <span>Hablemos</span>
+              <ArrowRigthIcon />
+            </a>
+          </div>
+        </div>
+      </div>
+      <main class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
+        <!-- Intro -->
+        <div class="relative">
+          <Intro />
+        </div>
+        <slot />
+      </main>
+    </div>
+    <script>
+      // Definir la función toggleTheme en el ámbito global
+      window.toggleTheme = function () {
+        const htmlElement = document.documentElement;
+        const currentTheme = localStorage.getItem("theme");
+        const moonButton = document.querySelector(
+          '[data-hs-theme-click-value="dark"]'
+        );
+        const sunButton = document.querySelector(
+          '[data-hs-theme-click-value="light"]'
+        );
+
+        if (moonButton && sunButton) {
+          if (currentTheme === "dark") {
+            htmlElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            moonButton.classList.remove("hidden");
+            moonButton.classList.add("flex");
+            sunButton.classList.remove("flex");
+            sunButton.classList.add("hidden");
+          } else {
+            htmlElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            moonButton.classList.remove("flex");
+            moonButton.classList.add("hidden");
+            sunButton.classList.remove("hidden");
+            sunButton.classList.add("flex");
+          }
+        }
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuToggleClose = document.getElementById("menu-toggle-close");
+
+        if (menuToggle && mobileMenu && menuToggleClose) {
+          menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+          });
+
+          menuToggleClose.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+          });
+        }
+
+        const currentTheme = localStorage.getItem("theme");
+        const moonButton = document.querySelector(
+          '[data-hs-theme-click-value="dark"]'
+        );
+        const sunButton = document.querySelector(
+          '[data-hs-theme-click-value="light"]'
+        );
+
+        if (moonButton && sunButton) {
+          if (currentTheme === "dark") {
+            moonButton.classList.add("hidden");
+            moonButton.classList.remove("flex");
+            sunButton.classList.add("flex");
+            sunButton.classList.remove("hidden");
+          } else {
+            moonButton.classList.add("flex");
+            moonButton.classList.remove("hidden");
+            sunButton.classList.add("hidden");
+            sunButton.classList.remove("flex");
+          }
+        }
+        // Obtener el contenedor del menú y los enlaces
+        const nav = document.querySelector(".navbar");
+        const navLinks = nav?.querySelectorAll("a");
+        const currentURL = window.location.pathname;
+
+        // Comparar la URL actual con los enlaces del menú
+        navLinks?.forEach((link) => {
+          if (link.getAttribute("href") === currentURL) {
+            link.closest("li")?.classList.add("active");
+          }
+        });
+
+        // Obtener el contenedor del menú y los enlaces
+        const navMobile = document.querySelector(".navbar-mobile");
+        const navLinksMobile = navMobile?.querySelectorAll("a");
+
+        // Comparar la URL actual con los enlaces del menú
+        navLinksMobile?.forEach((link) => {
+          if (link.getAttribute("href") === currentURL) {
+            link.closest("li")?.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+<style is:global>
+  body {
+    background-color: aliceblue;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+
+</style>

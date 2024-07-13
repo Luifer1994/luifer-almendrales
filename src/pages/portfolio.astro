@@ -1,0 +1,389 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ImageModal from "../components/ImageModal.astro";
+---
+
+<Layout title="Portafolio">
+  <div
+    class="rounded-2xl bg-white p-6 shadow dark:bg-black dark:shadow-cyan-200/5 lg:col-span-2 lg:p-10"
+  >
+    <div class="">
+      <h2
+        class="text-3xl font-semibold dark:text-light lg:text-[40px] lg:leading-tight"
+      >
+        Mira mis últimos <span class="text-primary">Proyectos</span>
+      </h2>
+      <p class="mt-4 text-lg text-muted dark:text-light/70">
+        Disponible para ayudarte a transformar tus ideas en soluciones web
+        efectivas.
+      </p>
+    </div>
+
+    <!-- Portfolio -->
+    <div class="mt-10 lg:mt-14">
+      <div class="mt-6 space-y-6">
+        <div class="">
+          <div
+            class="group relative overflow-hidden rounded-lg bg-light p-4 pb-0 dark:bg-dark-2 md:p-6 md:pb-0 xl:p-10 xl:pb-0"
+          >
+            <div
+              class="relative aspect-6/4 overflow-hidden rounded-t-lg openModal"
+              data-src="/images/282_1x_shots_so.png"
+            >
+              <img
+                src="/images/282_1x_shots_so.png"
+                alt=""
+                class="h-full w-full rounded-t-lg object-cover object-top transition-transform duration-300 ease-linear group-hover:rotate-0.5 group-hover:scale-[1.01]"
+              />
+
+              <a
+                href="/images/282_1x_shots_so.png"
+                data-gall="project-gallry-1"
+                class="project-gallery-link absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full bg-white text-primary shadow-lg transition lg:invisible lg:-translate-y-[40%] lg:opacity-0 lg:group-hover:visible lg:group-hover:-translate-y-1/2 lg:group-hover:opacity-100 vbox-item"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  class="h-6 w-6"
+                >
+                  <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-start justify-between py-4 md:p-6">
+            <div class="">
+              <h3 class="text-lg font-medium md:text-xl lg:text-2xl">
+                <p
+                  class="border-b border-transparent text-dark transition dark:text-white"
+                >
+                  Luifer Score - Recibe resultados de fútbol en vivo.
+                </p>
+              </h3>
+              <p class="text-sm text-muted lg:text-base">
+                Frontend | Aplicación web
+              </p>
+            </div>
+
+            <a
+              href="https://github.com/Luifer1994/luifer-score"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-1 rounded bg-white px-3 py-2 text-center text-sm leading-none text-dark transition hover:text-primary dark:bg-dark-2 dark:text-white dark:hover:text-primary"
+            >
+              <span>Repositorio</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 14 15"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4 shrink-0"
+              >
+                <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="">
+          <div
+            class="group relative overflow-hidden rounded-lg bg-light p-4 pb-0 dark:bg-dark-2 md:p-6 md:pb-0 xl:p-10 xl:pb-0"
+          >
+            <div
+              class="relative aspect-6/4 overflow-hidden rounded-t-lg openModal"
+              data-src="/images/46shots_so.png"
+            >
+              <img
+                src="/images/46shots_so.png"
+                alt=""
+                class="h-full w-full rounded-t-lg object-cover object-top transition-transform duration-300 ease-linear group-hover:rotate-0.5 group-hover:scale-[1.01]"
+              />
+
+              <a
+                href="/images/46shots_so.png"
+                data-gall="project-gallry-1"
+                class="project-gallery-link absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full bg-white text-primary shadow-lg transition lg:invisible lg:-translate-y-[40%] lg:opacity-0 lg:group-hover:visible lg:group-hover:-translate-y-1/2 lg:group-hover:opacity-100 vbox-item"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  class="h-6 w-6"
+                >
+                  <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-start justify-between py-4 md:p-6">
+            <div class="">
+              <h3 class="text-lg font-medium md:text-xl lg:text-2xl">
+                <p
+                  class="border-b border-transparent text-dark transition dark:text-white"
+                >
+                  Ecommerce - Plantilla base para Ecommerce.
+                </p>
+              </h3>
+              <p class="text-sm text-muted lg:text-base">
+                Frontend | Aplicación web
+              </p>
+            </div>
+
+            <a
+              href="https://nuxt-store-bmijhahom-luifer1994s-projects.vercel.app"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-1 rounded bg-white px-3 py-2 text-center text-sm leading-none text-dark transition hover:text-primary dark:bg-dark-2 dark:text-white dark:hover:text-primary"
+            >
+              <span>Visita</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 14 15"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4 shrink-0"
+              >
+                <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="">
+          <div
+            class="group relative overflow-hidden rounded-lg bg-light p-4 pb-0 dark:bg-dark-2 md:p-6 md:pb-0 xl:p-10 xl:pb-0"
+          >
+            <div
+              class="relative aspect-6/4 overflow-hidden rounded-t-lg openModal"
+              data-src="/images/biistmart.png"
+            >
+              <img
+                src="/images/biistmart.png"
+                alt=""
+                class="h-full w-full rounded-t-lg object-cover object-top transition-transform duration-300 ease-linear group-hover:rotate-0.5 group-hover:scale-[1.01]"
+              />
+
+              <a
+                href="/images/biistmart.png"
+                data-gall="project-gallry-1"
+                class="project-gallery-link absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full bg-white text-primary shadow-lg transition lg:invisible lg:-translate-y-[40%] lg:opacity-0 lg:group-hover:visible lg:group-hover:-translate-y-1/2 lg:group-hover:opacity-100 vbox-item"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  class="h-6 w-6"
+                >
+                  <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-start justify-between py-4 md:p-6">
+            <div class="">
+              <h3 class="text-lg font-medium md:text-xl lg:text-2xl">
+                <p
+                  class="border-b border-transparent text-dark transition dark:text-white"
+                >
+                  BiiSmart - Landing y Plataforma web envíos marítimos.
+                </p>
+              </h3>
+              <p class="text-sm text-muted lg:text-base">
+                Full Stack | Landing y Plataforma web
+              </p>
+            </div>
+
+            <a
+              href="https://www.biismart.com"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-1 rounded bg-white px-3 py-2 text-center text-sm leading-none text-dark transition hover:text-primary dark:bg-dark-2 dark:text-white dark:hover:text-primary"
+            >
+              <span>Visita</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 14 15"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4 shrink-0"
+              >
+                <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="">
+          <div
+            class="group relative overflow-hidden rounded-lg bg-light p-4 pb-0 dark:bg-dark-2 md:p-6 md:pb-0 xl:p-10 xl:pb-0"
+          >
+            <div
+              class="relative aspect-6/4 overflow-hidden rounded-t-lg openModal"
+              data-src="/images/soluquim.png"
+            >
+              <img
+                src="/images/soluquim.png"
+                alt=""
+                class="h-full w-full rounded-t-lg object-cover object-top transition-transform duration-300 ease-linear group-hover:rotate-0.5 group-hover:scale-[1.01]"
+              />
+
+              <a
+                href="/images/soluquim.png"
+                data-gall="project-gallry-1"
+                class="project-gallery-link absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full bg-white text-primary shadow-lg transition lg:invisible lg:-translate-y-[40%] lg:opacity-0 lg:group-hover:visible lg:group-hover:-translate-y-1/2 lg:group-hover:opacity-100 vbox-item"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  class="h-6 w-6"
+                >
+                  <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-start justify-between py-4 md:p-6">
+            <div class="">
+              <h3 class="text-lg font-medium md:text-xl lg:text-2xl">
+                <p
+                  class="border-b border-transparent text-dark transition dark:text-white"
+                >
+                  Soluquim - Administración de productos químicos.
+                </p>
+              </h3>
+              <p class="text-sm text-muted lg:text-base">
+                Full Stack | Plataforma web
+              </p>
+            </div>
+
+            <a
+              href="https://mejoraysoluciones.com"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-1 rounded bg-white px-3 py-2 text-center text-sm leading-none text-dark transition hover:text-primary dark:bg-dark-2 dark:text-white dark:hover:text-primary"
+            >
+              <span>Visita</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 14 15"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4 shrink-0"
+              >
+                <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="">
+          <div
+            class="group relative overflow-hidden rounded-lg bg-light p-4 pb-0 dark:bg-dark-2 md:p-6 md:pb-0 xl:p-10 xl:pb-0"
+          >
+            <div
+              class="relative aspect-6/4 overflow-hidden rounded-t-lg openModal"
+              data-src="/images/hoko.png"
+            >
+              <img
+                src="/images/hoko.png"
+                alt=""
+                class="h-full w-full rounded-t-lg object-cover object-top transition-transform duration-300 ease-linear group-hover:rotate-0.5 group-hover:scale-[1.01]"
+              />
+
+              <a
+                href="/images/hoko.png"
+                data-gall="project-gallry-1"
+                class="project-gallery-link absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full bg-white text-primary shadow-lg transition lg:invisible lg:-translate-y-[40%] lg:opacity-0 lg:group-hover:visible lg:group-hover:-translate-y-1/2 lg:group-hover:opacity-100 vbox-item"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  class="h-6 w-6"
+                >
+                  <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-start justify-between py-4 md:p-6">
+            <div class="">
+              <h3 class="text-lg font-medium md:text-xl lg:text-2xl">
+                <p
+                  class="border-b border-transparent text-dark transition dark:text-white"
+                >
+                  HOKO - Dropshipping y Ecommerce
+                </p>
+              </h3>
+              <p class="text-sm text-muted lg:text-base">
+                Full Stack | Plataforma web
+              </p>
+            </div>
+
+            <a
+              href="https://hoko.com.co"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-1 rounded bg-white px-3 py-2 text-center text-sm leading-none text-dark transition hover:text-primary dark:bg-dark-2 dark:text-white dark:hover:text-primary"
+            >
+              <span>Visita</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 14 15"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4 shrink-0"
+              >
+                <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 lg:mt-14">
+        <marquee
+          behavior="scroll"
+          direction="left"
+          class="overflow-hidden bg-gray-100 text-nowrap rounded-lg p-3 text-3xl font-medium text-muted dark:bg-dark-2"
+        >
+          Listo para trabajar juntos 🚀 Creando experiencias digitales 🎨 Listo
+          para trabajar juntos 🚀 Creando experiencias digitales 🎨 Listo para
+          trabajar juntos 🚀 Creando experiencias digitales 🎨
+        </marquee>
+      </div>
+    </div>
+    <ImageModal />
+  </div>
+</Layout>

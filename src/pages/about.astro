@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ListOfTechnologies from "../components/ListOfTechnologies.astro";
+import Reviews from "../components/Reviews.astro";
+import ListStudent from "../components/ListStudent.astro";
+---
+
+<Layout title="Sobre mí">
+  <div
+    class="rounded-2xl bg-white p-6 shadow dark:bg-black dark:shadow-cyan-200/5 lg:col-span-2 lg:p-10"
+  >
+    <div class="flex flex-col-reverse items-start gap-6 lg:flex-row lg:gap-10">
+      <div class="">
+        <h2
+          class="text-3xl font-semibold text-dark dark:text-white lg:text-[40px]"
+        >
+          Hola, soy <span class="text-primary">Luifer Almendrales</span> 👋
+        </h2>
+        <p
+          class="mt-4 text-lg text-muted dark:text-white/70 lg:mt-6 lg:text-2xl"
+        >
+          <span class="font-semibold text-dark dark:text-white">
+            Desarrollador web full stack
+          </span>
+          🖥️ con más de
+          <span class="font-semibold text-dark dark:text-white">
+            5 años de experiencia</span
+          >
+          y una gran pasión por lo que hago. Transformando ideas en
+          <span class="font-semibold text-dark dark:text-white">
+            soluciones digitales de alta calidad.</span
+          >
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-wrap justify-between gap-6 lg:mt-12 lg:gap-10">
+      <div class="flex flex-wrap items-start gap-6 lg:gap-10">
+        <div class="">
+          <h2
+            class="text-3xl font-semibold text-dark dark:text-white lg:text-[40px]"
+          >
+            <span>5</span>+
+          </h2>
+          <p class="mt-2 text-muted">Años de experiencia</p>
+        </div>
+        <div class="">
+          <h2
+            class="text-3xl font-semibold text-dark dark:text-white lg:text-[40px]"
+          >
+            <span>21</span>+
+          </h2>
+          <p class="mt-2 text-muted">Proyectos completados</p>
+        </div>
+        <div class="">
+          <h2
+            class="text-3xl font-semibold text-dark dark:text-white lg:text-[40px]"
+          >
+            <span>13</span>+
+          </h2>
+          <p class="mt-2 text-muted">Clientes felices</p>
+        </div>
+        <div class="">
+          <h2
+            class="text-3xl font-semibold text-dark dark:text-white lg:text-[40px]"
+          >
+            <span>1,567</span>+
+          </h2>
+          <p class="mt-2 text-muted">Tazas de café</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14">
+      <h3 class="text-2xl font-medium text-dark dark:text-white lg:text-3xl">
+        Tecnologías
+      </h3>
+      <div class="mt-6 grid grid-cols-4 gap-4 md:grid-cols-8">
+        <ListOfTechnologies />
+      </div>
+    </div>
+
+    <ListStudent />
+
+    <Reviews />
+
+    <div class="mt-10 lg:mt-14">
+      <marquee
+        behavior="scroll"
+        direction="left"
+        class="overflow-hidden bg-gray-100 text-nowrap rounded-lg p-3 text-3xl font-medium text-muted dark:bg-dark-2"
+      >
+        Listo para trabajar juntos 🚀 Creando experiencias digitales 🎨 Listo
+        para trabajar juntos 🚀 Creando experiencias digitales 🎨 Listo para
+        trabajar juntos 🚀 Creando experiencias digitales 🎨
+      </marquee>
+    </div>
+  </div>
+</Layout>

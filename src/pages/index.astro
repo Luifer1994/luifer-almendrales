@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import WorkExperience from "../components/WorkExperience.astro";
+import RsentProject from "../components/RsentProject.astro";
+import Services from "../components/Services.astro";
+---
+
+<Layout title="Inicio">
+  <div class="grid grid-cols-1 gap-4 lg:gap-6">
+    <!-- Work Experience -->
+    <WorkExperience />
+  </div>
+  <RsentProject />
+
+  <!-- Services -->
+  <Services />
+
+  <!-- Contact -->
+  <div class="rounded-2xl bg-white p-6 shadow dark:bg-black dark:shadow-cyan-200/5">
+    <marquee
+      behavior="scroll"
+      direction="left"
+      class="overflow-hidden text-nowrap rounded-lg p-3 text-lg font-medium text-muted dark:bg-dark-2"
+    >
+      Listo para trabajar juntos 🚀 Creando experiencias digitales 🎨 Listo para trabajar juntos 🚀 Creando experiencias digitales 🎨
+    </marquee>
+
+    <h2 class="mt-4 text-[40px] font-semibold leading-snug text-dark dark:text-white">
+      👋 <br />
+      Trabajemos juntos
+    </h2>
+
+    <a
+      href="https://wa.me/573117952897"
+      target="_blank"
+      class="mt-6 inline-flex items-center justify-center gap-2 border-b text-center text-base text-primary transition hover:border-b-primary dark:border-b-muted dark:hover:border-b-primary"
+    >
+      <span>Hablemos</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.5"
+        class="h-5 w-5"
+      >
+        <path d="M17.5 11.667v-5h-5"></path>
+        <path d="m17.5 6.667-7.5 7.5-7.5-7.5"></path>
+      </svg>
+    </a>
+  </div>
+</Layout>

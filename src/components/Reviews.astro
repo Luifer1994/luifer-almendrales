@@ -1,0 +1,165 @@
+---
+const generateStar = () =>
+  `<svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+    <path d="M10 15l-5.878 3.09L5.824 10.32.946 6.53l6.33-.918L10 0l2.724 5.612 6.33.918-4.878 3.79L15.878 18 10 15z"></path>
+  </svg>`;
+
+const returnStars = (count: number) => {
+  const starElements = [];
+  for (let i = 0; i < count; i++) {
+    starElements.push(generateStar());
+  }
+  return starElements;
+};
+---
+
+<div class="mt-10 lg:mt-14">
+  <div class="flex flex-wrap items-center justify-between gap-6">
+    <h3 class="text-2xl font-medium text-dark dark:text-white lg:text-3xl">
+      Opiniones de algunos clientes
+    </h3>
+    <div class="flex items-center gap-2">
+      <button
+        id="prevBtn"
+        class="grid h-9 w-9 place-content-center rounded-lg border border-muted/30 text-muted transition hover:border-primary hover:text-primary"
+        aria-label="Previous slide"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          class="h-5 w-5 shrink-0"
+        >
+          <path d="M4.167 10h11.666M4.167 10l5 5m-5-5 5-5"></path>
+        </svg>
+      </button>
+      <button
+        id="nextBtn"
+        class="grid h-9 w-9 place-content-center rounded-lg border border-muted/30 text-muted transition hover:border-primary hover:text-primary"
+        aria-label="Next slide"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          class="h-5 w-5 shrink-0"
+        >
+          <path d="M4.167 10h11.666m-5 5 5-5m-5-5 5 5"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="reviewCarousel" class="overflow-hidden relative">
+    <div class="flex transition-transform duration-500">
+      <div class="min-w-full p-4 lg:min-w-1/2">
+        <div class="dark:bg-dark-2 bg-gray-100 rounded-lg p-6">
+          <div class="flex items-center mb-4">
+            {
+              returnStars(5).map((star, index) => (
+                <div set:html={star} class="flex-shrink-0" />
+              ))
+            }
+          </div>
+          <blockquote class="mb-4">
+            "Luifer ha sido clave en el desarrollo de múltiples aplicaciones y
+            plataformas web para nuestros clientes en Cerbox. Su trabajo siempre
+            es impecable y eficiente."
+          </blockquote>
+          <p class="font-medium text-base text-dark dark:text-white">
+            José Ortiz - <span class="text-muted dark:text-white/70 font-normal"
+              >Cerbox</span
+            >
+          </p>
+        </div>
+      </div>
+      <div class="min-w-full p-4 lg:min-w-1/2">
+        <div class="dark:bg-dark-2 bg-gray-100 rounded-lg p-6">
+          <div class="flex items-center mb-4">
+            {
+              returnStars(5).map((star, index) => (
+                <div set:html={star} class="flex-shrink-0" />
+              ))
+            }
+          </div>
+          <blockquote class="mb-4">
+            "Siempre he estado muy contento con el trabajo realizado por Luifer.
+            Me ayudó a crear mis páginas y las de muchos de mis clientes. Su
+            trabajo es excepcional y siempre supera mis expectativas."
+          </blockquote>
+          <p class="font-medium text-base text-dark dark:text-white">
+            Saulo Torres - <span
+              class="text-muted dark:text-white/70 font-normal"
+              >Marketing Business</span
+            >
+          </p>
+        </div>
+      </div>
+      <div class="min-w-full p-4 lg:min-w-1/2">
+        <div class="dark:bg-dark-2 bg-gray-100 rounded-lg p-6">
+          <div class="flex items-center mb-4">
+            {
+              returnStars(5).map((star, index) => (
+                <div set:html={star} class="flex-shrink-0" />
+              ))
+            }
+          </div>
+          <blockquote class="mb-4">
+            "La creatividad y profesionalismo de Luifer son inigualables. Nos
+            ayudó con nuestra página en Body Harmony Plastic Surgery y el
+            resultado fue espectacular."
+          </blockquote>
+          <p class="font-medium text-base text-dark dark:text-white">
+            Pablo Boran - <span
+              class="text-muted dark:text-white/70 font-normal"
+              >Body Harmony Plastic Surgery</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement;
+    const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement;
+    const carousel = document.getElementById(
+      "reviewCarousel"
+    ) as HTMLElement | null;
+    const track = carousel?.querySelector(".flex") as HTMLElement | null;
+    const slides = track ? Array.from(track.children) : [];
+    let slideWidth = slides[0]?.getBoundingClientRect().width || 0;
+
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      slideWidth = slides[0]?.getBoundingClientRect().width || 0;
+      if (track) {
+        (track as HTMLElement).style.transform =
+          `translateX(-${slideWidth * currentIndex}px)`;
+      }
+    };
+
+    window.addEventListener("resize", updateCarousel);
+
+    prevBtn?.addEventListener("click", () => {
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
+      updateCarousel();
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      currentIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
+      updateCarousel();
+    });
+  });
+</script>

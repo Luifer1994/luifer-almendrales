@@ -1,0 +1,26 @@
+---
+import ListWorkExperience from "./ListWorkExperience.astro";
+import ListOfTechnologies from "./ListOfTechnologies.astro";
+---
+
+<div
+  class="group rounded-2xl bg-white px-6 pt-0 shadow dark:bg-black dark:shadow-cyan-200/5"
+>
+  <h3
+    class="relative z-10 bg-white pb-2 pt-6 text-2xl font-semibold dark:bg-black dark:text-light"
+  >
+    Experiencia laboral
+  </h3>
+  <ListWorkExperience />
+</div>
+
+<!-- Expertise -->
+<div
+  class="rounded-2xl bg-white p-6 shadow dark:bg-black dark:shadow-cyan-200/5"
+>
+  <h3 class="text-2xl font-semibold dark:text-light">Tecnologías</h3>
+
+  <div class="mt-6 grid grid-cols-4 gap-4 md:grid-cols-4">
+    <ListOfTechnologies />
+  </div>
+</div>
