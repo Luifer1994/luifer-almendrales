@@ -389,7 +389,6 @@ const TechnologyIcons: IconType[] = [
 ];
 
 export const getIcon = (title: string): string | null => {
-  console.log(title);
   const iconObject = TechnologyIcons.find((icon) => icon.title === title);
   return iconObject ? iconObject.icon : null;
 };
