@@ -14,17 +14,42 @@ import MenuIcon from "../components/icons/MenuIcon.astro";
 import ArrowRigthIcon from "../components/icons/ArrowRigthIcon.astro";
 import ClosedIcon from "../components/icons/ClosedIcon.astro";
 import Intro from "../components/Intro.astro";
+
+import { SEO } from "astro-seo";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
+    <SEO
+      title={`Luifer Almendrales - ${title}`}
+      description="Portfolio de Luifer Almendrales, desarrollador web. Aquí puedes encontrar mis proyectos, información sobre mí y cómo contactarme."
+      openGraph={{
+        basic: {
+          title: `Luifer Almendrales - ${title}`,
+          type: "website",
+          image: "https://scontent.fsmr1-1.fna.fbcdn.net/v/t39.30808-6/239633589_4657915404253684_3255763481429686831_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGbAUvNZs7NSUTY7tbgQYrk0_gOM9t-CTrT-A4z234JOrzRKMcG3bJvN5bN_7iE35wOUrLSNWF4mVDonbWFhoIg&_nc_ohc=PRrvR6ogA6EQ7kNvgHYxj9_&_nc_ht=scontent.fsmr1-1.fna&oh=00_AYBfE6VdDyN-T25eOAL13PjOrimTxz-N5OWKVqZFiXxCXg&oe=66970C35",
+        }
+      }}
+      twitter={{
+        creator: "@luifer_almendrales"
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.png" }],
+        meta: [
+          {
+            name: "twitter:image",
+            content: "https://scontent.fsmr1-1.fna.fbcdn.net/v/t39.30808-6/239633589_4657915404253684_3255763481429686831_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGbAUvNZs7NSUTY7tbgQYrk0_gOM9t-CTrT-A4z234JOrzRKMcG3bJvN5bN_7iE35wOUrLSNWF4mVDonbWFhoIg&_nc_ohc=PRrvR6ogA6EQ7kNvgHYxj9_&_nc_ht=scontent.fsmr1-1.fna&oh=00_AYBfE6VdDyN-T25eOAL13PjOrimTxz-N5OWKVqZFiXxCXg&oe=66970C35"
+          },
+          { name: "twitter:title", content: `Luifer Almendrales - ${title}` },
+          { name: "twitter:description", content: "Portfolio de Luifer Almendrales, desarrollador web." },
+        ],
+      }}
+    />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <script>
       // En un archivo de declaración global, por ejemplo, global.d.ts
       declare global {
